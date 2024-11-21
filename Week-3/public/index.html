@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT725 3.2P</title>
+    <meta name="description" content="SIT725 3.2P by Stella Jo">
+    <meta name="author" content="Stella Jo">
+    <meta property="og:title" content="SIT725 3.2P">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="SIT725 3.2P by Stella Jo">
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper navbar-size">
+            <a href="#" class="heart-logo"><img class="user-image-size"  src="favorite_15114772.png" width="50" height="50"/></a>
+        </div>
+    </nav>
+    <main class="main-body">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <img src="cutecat.jpg" width="300" height="300" alt="" class="circle responsive-img"> <!--free source image-->
+                    <h1 id="heading">Hi! I am Stella Jo.</h1>
+                    <p class="flow-text">As you can tell from the photo above I am a cat lover. <br> If you want to know more about me, please click the buttons below! </p>
+                </div>
+                <div class="col s12 center-align">
+                    <a class="waves-effect waves-light btn click-me-button" id="clickMeButton"><i
+                            class="material-icons left">auto_fix_high</i>Click Me</a>
+                </div>
+                <div class="col s12 center-align">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">More Cats? XD</a>
+                </div>
+                
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content center-align">
+                        <h4>I love orange cats!</h4>
+                        <img src="orangecat.jpg" width="200" height="200" alt="" class="circle responsive-img"> <!--free source image-->9
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Import JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Initialize Modal
+        document.addEventListener('DOMContentLoaded', function () {
+            var modals = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(modals);
+        });
+
+        // Change Button Color on Click
+        $(document).ready(function () {
+            $('#clickMeButton').on('click', function () {
+                $(this).removeClass('teal lighten-2').addClass('pink lighten-1');
+            });
+        });
+    </script>
+</body>
+
+</html>
