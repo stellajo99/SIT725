@@ -1,0 +1,22 @@
+{
+  "name": "week-6",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "mocha": "^11.0.1"
+  },
+  "dependencies": {
+    "chai": "^5.1.2",
+    "chai-http": "^5.1.1"
+  } 
+}
