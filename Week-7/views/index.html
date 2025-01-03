@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat App</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/style.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Cat Lovers</a>
+        </div>
+    </nav>
+    <main class="container">
+        <h1 class="center-align">Add Your Favorite Cat</h1>
+        <form id="catForm" method="POST" action="/add-cat">
+            <div class="input-field">
+                <input type="text" id="name" name="name" required>
+                <label for="name">Cat Name</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="photo" name="photo" required>
+                <label for="photo">Cat Photo URL</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Add Cat</button>
+        </form>
+        <h2 class="center-align">Cat Gallery</h2>
+        <div id="catGallery" class="row"></div>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
