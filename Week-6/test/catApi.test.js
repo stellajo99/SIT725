@@ -71,6 +71,40 @@ describe('Cat API Tests', function () {
         });
     });
 
+    // New Test Cases
+    describe('POST /add-cat validation tests', function () {
+        it('should return 400 if name is missing', async function () {
+            const invalidCat = JSON.stringify({ photo: 'http://example.com/missingname.jpg' });
+            const response = await makeRequest('/add-cat', 'POST', invalidCat, {
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(invalidCat),
+            });
+            assert.strictEqual(response.statusCode, 400);
+        });
+
+        it('should return 400 if photo is missing', async function () {
+            const invalidCat = JSON.stringify({ name: 'NoPhoto' });
+            const response = await makeRequest('/add-cat', 'POST', invalidCat, {
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(invalidCat),
+            });
+            assert.strictEqual(response.statusCode, 400);
+        });
+    });
+
+    describe('GET /cats with large data', function () {
+        it('should handle a large number of cats gracefully', async function () {
+            const db = getDB();
+            const mockCats = Array.from({ length: 1000 }, (_, i) => ({ name: `Cat${i}`, photo: `http://example.com/cat${i}.jpg` }));
+            await db.collection('cats').insertMany(mockCats);
+
+            const response = await makeRequest('/cats', 'GET');
+            assert.strictEqual(response.statusCode, 200);
+            const body = JSON.parse(response.body);
+            assert.ok(body.length >= 1000); // Ensure at least 1000 entries exist
+        });
+    });
+
     // Helper function to make HTTP requests
     function makeRequest(path, method, body = null, headers = {}) {
         return new Promise((resolve, reject) => {
