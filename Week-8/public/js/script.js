@@ -1,6 +1,3 @@
-console.log("✅ script.js is loaded!");
-
-
 document.addEventListener('DOMContentLoaded', async () => {
     const catGallery = document.getElementById('catGallery');
     const catForm = document.getElementById('catForm'); // Get the form
